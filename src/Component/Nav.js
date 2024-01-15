@@ -8,7 +8,7 @@ const Nav = () => {
 
     const logout = () => {
         localStorage.clear();
-        navigate("/signup");
+        navigate("/login");
     }
 
 
@@ -18,14 +18,14 @@ const Nav = () => {
             {
                 auth ?<ul className="nav-ul">
 
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/home">Home</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
                     <li><Link to = "/about">About</Link></li>
-                    <li><Link onClick={logout} to="/signup">Log Out</Link></li>
+                    <li><Link onClick={logout} to="/login">Log Out</Link></li>
                 </ul>:
 
                     <ul className="nav-ul nav-right float-left">
-                        <li><Link to="/signup">Sign Up/ Register</Link></li>
+                        <li><Link to="/">Sign Up/ Register</Link></li>
                         <li><Link to="/login">Login</Link></li>
                     </ul>
             }

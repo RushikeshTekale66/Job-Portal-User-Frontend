@@ -7,6 +7,7 @@ const JobList = () => {
     let auth = localStorage.getItem('user');
     auth = JSON.parse(auth);
 
+
     const getJobs = async () => {
         let result = await fetch('http://localhost:9000/jobs');
         // result = await result.json();

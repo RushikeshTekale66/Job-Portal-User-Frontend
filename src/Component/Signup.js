@@ -26,14 +26,14 @@ const Signup = () => {
         localStorage.setItem("user", JSON.stringify(result));
         console.log(result);
         if (result) {
-            navigate('/')
+            navigate('/home')
         }
     }
 
     useEffect(() => {
         const auth = localStorage.getItem('user');
         if (auth) {
-            navigate('/');
+            navigate('/home');
         }
     })
 
