@@ -33,72 +33,59 @@ const JobList = () => {
     }
 
     return (
-        <div className="">
+        <div className="container px-3 mt-5">
 
-            <div className="fixed-top search-bar" >
-                <h4 className="font-monospace">Hey <strong className="text-primary"> {auth.name}</strong><br></br>You dream Job is here...</h4>
-
-                <input className="search-product-box" type="text" placeholder="Search product" onChange={searchHandle} /><br></br>
+            {/* Search Bar Section */}
+            <div className="bg-light shadow-sm py-3 px-4">
+                <h4 className="font-monospace mb-2">
+                    Hey <strong className="text-primary">{auth.name}</strong><br />
+                    Your dream job is here...
+                </h4>
+                <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Search job title or company"
+                    onChange={searchHandle}
+                />
             </div>
 
 
-
-            {/* <ul>
-                <li><strong>Sr.no</strong></li>
-                <li><strong>Position</strong></li>
-                <li><strong>Skills</strong></li>
-                <li><strong>Salary</strong></li>
-                <li><strong>Company</strong></li>
-                <li><strong>company Description</strong></li>
-                <li><strong>Job Expiry</strong></li>
-                <li><strong>Apply Link</strong></li>
-            </ul>
-
-            {
-                jobs.length > 0 ? jobs.map((item, index) =>
-                    <ul key={item._id}>
-                        <li>{index + 1}</li>
-                        <li>{item.position}</li>
-                        <li>{item.skills}</li>
-                        <li>${item.salary}</li>
-                        <li>{item.company}</li>
-                        <li>{item.companyDescription}</li>
-                        <li>{item.date}</li>
-                        <li><Link to={item.applyLink} target="_blank">Apply</Link></li>
-                    </ul>
-                )
-                    : <h1>No Record Found!</h1>
-            } */}
-
-            {/* <h1>Job Items</h1> */}
-
-            <div className="product">
-
-            {
-                jobs.length > 0 ? jobs.map((item, index) =>
-                    <ul className="container col-6" key={item._id}>
-                        <div className="g-col-6">
-                            <p className="text-center fs-4 text-primary"><strong>{item.position}</strong></p>
-                            <company><strong className="">Company: </strong>{item.company}</company><br></br>
-                            <company><strong className="">Company Description: </strong>{item.companyDescription}</company><br></br>
-                            <salary><strong className="">Salary: </strong>{item.salary}</salary><br></br>
-                            <skills><strong className="">Skills: </strong>{item.skills}</skills><br></br>
-                            <date><strong className="text-danger">Expiry: </strong>
-                                {new Date(item.date).getFullYear()}-
-                                {String(new Date(item.date).getMonth() + 1).padStart(2, '0')}-
-                                {String(new Date(item.date).getDate()).padStart(2, '0')}
-                            </date><br></br>
-                            <Link className="btn btn-success float-left" to={item.applyLink} target="_blank">Apply Now</Link>
+            {/* Job Listings */}
+            <div className="row justify-content-center">
+                {jobs.length > 0 ? (
+                    jobs.map((item) => (
+                        <div className="col-md-6 mb-4" key={item._id}>
+                            <div className="card shadow-sm p-4">
+                                <h5 className="text-primary text-center mb-3">
+                                    <strong>{item.position}</strong>
+                                </h5>
+                                <p><strong>Company:</strong> {item.company}</p>
+                                <p><strong>Description:</strong> {item.companyDescription}</p>
+                                <p><strong>Salary:</strong> {item.salary}</p>
+                                <p><strong>Skills:</strong> {item.skills}</p>
+                                <p className="text-danger">
+                                    <strong>Expiry:</strong>{' '}
+                                    {new Date(item.date).getFullYear()}-
+                                    {String(new Date(item.date).getMonth() + 1).padStart(2, '0')}-
+                                    {String(new Date(item.date).getDate()).padStart(2, '0')}
+                                </p>
+                                <a
+                                    className="btn btn-success mt-2"
+                                    href={item.applyLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Apply Now
+                                </a>
+                            </div>
                         </div>
-                    </ul>
-                )
-                    : <h1>No Record Found!</h1>
-            }
+                    ))
+                ) : (
+                    <h2 className="text-center text-muted mt-5">No Record Found!</h2>
+                )}
             </div>
+        </div>
 
-
-
-        </div >
     )
 }
 

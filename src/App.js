@@ -13,26 +13,23 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
+        <Nav />
+        <div className="main-content">
+          <Routes>
+            <Route element={<PrivateComponent />}>
+              <Route path="/home" element={<JobList />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/about" element={<About />} />
+            </Route>
 
-<BrowserRouter>
-        <Nav/>
-
-        <Routes>
-
-          <Route element={<PrivateComponent/>}/>
-          <Route path = '/home' element={<JobList/>}></Route>
-          <Route path='/profile' element={<Profile/>}></Route>
-          <Route path = '/about' element={<About/>}></Route>
-
-          <Route path='/logout' element={<h1>Log ou From Page</h1>}></Route>
-          <Route path='/' element={<Signup/>}></Route>
-          <Route path='/login' element={<Login/>}/>
-
-
-        </Routes>
+            <Route path="/logout" element={<h1>Log out From Page</h1>} />
+            <Route path="/" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
       </BrowserRouter>
-      <Footer/>
-      
+      <Footer />
     </div>
   );
 }

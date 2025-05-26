@@ -38,38 +38,120 @@ const Signup = () => {
     })
 
     return (
-        <div className="register">
-            <h2>User Register </h2>
+        <div className="container my-5">
+            <div className="card shadow p-4 col-lg-8 mx-auto">
+                <h2 className="text-center mb-4 text-primary">User Registration</h2>
 
-            <label for="userCaptcha">Name: </label>
-            <input className="inputbox" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter Name" />
+                <div className="mb-3">
+                    <label className="form-label">Name:</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Enter Name"
+                    />
+                </div>
 
-            <label for="userCaptcha">Email: </label>
-            <input className="inputbox" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email" />
+                <div className="mb-3">
+                    <label className="form-label">Email:</label>
+                    <input
+                        type="email"
+                        className="form-control"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter Email"
+                    />
+                </div>
 
-            <label for="userCaptcha">Mobile: </label>
-            <input className="inputbox" type="number" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder="Enter Mobile" />
+                <div className="mb-3">
+                    <label className="form-label">Mobile:</label>
+                    <input
+                        type="number"
+                        className="form-control"
+                        value={mobile}
+                        onChange={(e) => setMobile(e.target.value)}
+                        placeholder="Enter Mobile Number"
+                    />
+                </div>
 
-            <label for="userCaptcha">Gender: </label>
-            <div className="inputbox">
-                <input type="radio" name="gender" value="Male" onChange={(e) => setGender(e.target.value)} /> Male <br></br>
-                <input type="radio" name="gender" value="Female" onChange={(e) => setGender(e.target.value)} /> Female
+                <div className="mb-3">
+                    <label className="form-label">Gender:</label>
+                    <div>
+                        <div className="form-check form-check-inline">
+                            <input
+                                type="radio"
+                                className="form-check-input"
+                                name="gender"
+                                value="Male"
+                                onChange={(e) => setGender(e.target.value)}
+                            />
+                            <label className="form-check-label">Male</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input
+                                type="radio"
+                                className="form-check-input"
+                                name="gender"
+                                value="Female"
+                                onChange={(e) => setGender(e.target.value)}
+                            />
+                            <label className="form-check-label">Female</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Date of Birth:</label>
+                    <input
+                        type="date"
+                        className="form-control"
+                        value={dob}
+                        onChange={(e) => setDob(e.target.value)}
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Address:</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        placeholder="Enter Address"
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Higher Education:</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={education}
+                        onChange={(e) => setEducation(e.target.value)}
+                        placeholder="Enter Education Details"
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Password:</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter Password"
+                    />
+                </div>
+
+                <div className="d-grid">
+                    <button className="btn btn-success" type="button" onClick={collectData}>
+                        Sign Up
+                    </button>
+                </div>
             </div>
-
-            <label for="userCaptcha">Date of Birth: </label>
-            <input className="inputbox" type="date" value={dob} onChange={(e) => setDob(e.target.value)} placeholder="Date of Birth" />
-
-            <label for="userCaptcha">Address: </label>
-            <input className="inputbox" type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Enter full address" />
-
-            <label for="userCaptcha">Higher Education: </label>
-            <input className="inputbox" type="text" value={education} onChange={(e) => setEducation(e.target.value)} placeholder="Enter Education Details" />
-
-            <label for="userCaptcha">Password: </label>
-            <input className="inputbox" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
-
-            <button className="appbutton" type="button" onClick={collectData}>Signup</button>
         </div>
+
     )
 
 }
